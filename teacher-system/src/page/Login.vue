@@ -3,12 +3,9 @@
     <nav
       class="bg-[#363C56] py-2 pl-6 w-screen fixed left-0 right-0 top-0 z-20"
     >
-      <span class="text-white font-inter text-xs font-semibold tracking-wide"
-        >復興高中<br />智慧出缺勤系統</span
-      >
-      <!-- <span class="fixed top-5 right-5 text-white font-light"
-        >Login with Google</span
-      > -->
+      <span class="text-white font-inter text-xs font-semibold tracking-wide">
+        復興高中<br />智慧出缺勤系統
+      </span>
     </nav>
     <div class="p-8"></div>
     <div class="flex justify-center items-center">
@@ -24,17 +21,13 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import axios from "axios";
 import { useRouter } from "vue-router";
-import { app } from "../main";
 
 const auth = getAuth();
 const router = useRouter();
-
-const email = ref("");
-const password = ref("");
-const errorMsg = ref("");
 
 const loginWithGoogle = async () => {
   try {
@@ -42,32 +35,43 @@ const loginWithGoogle = async () => {
     const afterSignIn = await signInWithPopup(auth, provider);
 
     console.log(afterSignIn);
-
     console.log("Success!");
 
-    redirectToNextPage();
+    const idTokenValue = afterSignIn.user.stsTokenManager.accessToken;
+    console.log("ID Token:", idTokenValue);
+
+    const requestData = {
+      id_token: idTokenValue,
+    };
+
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${idTokenValue}`,
+    };
+
+    axios
+      .post(
+        "https://c95a-2407-4d00-1c03-7e47-9897-12d5-bf1f-ab60.ngrok-free.app/auth/login",
+        requestData,
+        { headers }
+      )
+      .then((response) => {
+        const { userId, userEmail } = response.data;
+        console.log(
+          `Received data from the backend - userId: ${userId}, userEmail: ${userEmail}`
+        );
+
+        redirectToNextPage();
+      })
+      .catch((error) => {
+        console.error("Error sending request to the backend:", error);
+      });
   } catch (error) {
     console.error("Fail!", error);
   }
 
   function redirectToNextPage() {
     router.push("/home");
-  }
-};
-
-const login = async () => {
-  if (!email.value || !password.value) {
-    errorMsg.value = "帳號名稱或密碼不能為空";
-    return;
-  }
-
-  try {
-    await app.signInWithEmailAndPassword(auth, email.value, password.value);
-
-    router.push("/home");
-  } catch (error) {
-    errorMsg.value = "Login Fail! " + error.message;
-    console.error("Login Fail!", error.message);
   }
 };
 </script>

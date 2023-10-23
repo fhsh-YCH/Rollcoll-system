@@ -47,6 +47,7 @@ const hideLoading = () => {
           <router-link to="/logina"></router-link>
           <router-link to="/tutorclass"></router-link>
           <router-link to="/classdaytable"></router-link>
+          <router-link to="/latewrite"></router-link>
         </nav>
         <router-view />
       </div>

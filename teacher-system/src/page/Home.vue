@@ -43,6 +43,9 @@ const navigateToRevise = () => {
 const navigateToTutor = () => {
   router.push("/tutorclass");
 };
+const navigateToLateWrite = () => {
+  router.push("/latewrite");
+};
 
 // const btnLogOut = () => {
 //   const auth = getAuth();
@@ -69,9 +72,13 @@ const btnLogOut = async () => {
   }
 };
 
-import Modal from "../components/LateModal.vue";
+const NotOpenYet = async () => {
+  alert("尚未開放");
+};
 
-const isModalOpen = ref(false);
+// import Modal from "../components/LateModal.vue";
+
+// const isModalOpen = ref(false);
 
 const userDisplayName = ref("");
 
@@ -143,7 +150,8 @@ onAuthStateChanged(auth, (user) => {
 
     <div class="flex flex-col justify-center items-center py-6 bg-[#FEFAF7]">
       <!-- 修改當日出缺勤狀態 -->
-      <button @click="navigateToRevise">
+      <button @click="NotOpenYet">
+        <!-- <button @click="navigateToRevise"> -->
         <div class="flex items-center">
           <div class="text-[#4B526D] rounded-full px-8 py-4 flex items-center">
             <!-- <div class="border-l-4 border-[#4B526D] bg-white py-4 px-1"></div> -->
@@ -189,7 +197,9 @@ onAuthStateChanged(auth, (user) => {
       </button>
 
       <!-- 晚到證明 -->
-      <button @click="isModalOpen = true">
+      <button @click="NotOpenYet">
+        <!-- <button @click="navigateToLateWrite"> -->
+        <!-- <Modal :isModalOpen="isModalOpen" @closeModal="isModalOpen = false" /> -->
         <div class="flex items-center">
           <div class="text-[#4B526D] rounded-full px-8 py-4 flex items-center">
             <div class="pr-4">
@@ -250,11 +260,11 @@ onAuthStateChanged(auth, (user) => {
             </div>
           </div>
         </div>
-        <Modal :isModalOpen="isModalOpen" @closeModal="isModalOpen = false" />
       </button>
 
       <!-- 查看導班出缺勤紀錄 -->
-      <button @click="navigateToTutor">
+      <button @click="NotOpenYet">
+        <!-- <button @click="navigateToTutor"> -->
         <div class="flex items-center">
           <div class="text-[#4B526D] rounded-full px-8 py-4 flex items-center">
             <div class="pr-4">
@@ -298,7 +308,7 @@ onAuthStateChanged(auth, (user) => {
       </button>
 
       <!-- 查看出缺勤紀錄 -->
-      <button>
+      <button @click="NotOpenYet">
         <div class="flex items-center">
           <div class="text-[#4B526D] rounded-full px-8 py-4 flex items-center">
             <div class="pr-4">

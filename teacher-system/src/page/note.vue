@@ -1,5 +1,4 @@
 <template>
-  <!-- 使用 v-if 条件渲染，只有在 isModalOpen 为 true 时才显示模态框 -->
   <div
     v-if="isModalOpen"
     class="fixed inset-0 flex h-full w-full items-center justify-center bg-black/40"
@@ -10,7 +9,7 @@
       >
         <span class="font-semibold text-xl">備註</span>
         <div class="p-1"></div>
-        <!-- 使用 v-model 将输入与 notes 变量绑定 -->
+
         <input
           v-model="notes"
           type="text"

@@ -6,6 +6,7 @@ import Revise from "./page/Revise.vue";
 import LoginA from "./page/LoginAcc.vue";
 import Tutor from "./page/TutorClass.vue";
 import ClassDay from "./page/ClassDay.vue";
+import LateWrite from "./page/Late-write.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -17,6 +18,7 @@ const router = createRouter({
     { path: "/logina", component: LoginA },
     { path: "/tutorclass", component: Tutor },
     { path: "/classdaytable", component: ClassDay },
+    { path: "/latewrite", component: LateWrite },
   ],
 });
 

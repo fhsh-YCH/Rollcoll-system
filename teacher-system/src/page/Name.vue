@@ -1,0 +1,108 @@
+<template>
+  <div class="h-full bg-[#FEFAF7]">
+    <nav
+      class="bg-[#363C56] py-3 pl-6 w-screen fixed left-0 right-0 top-0 z-20"
+    >
+      <div class="flex items-center">
+        <span class="text-white text-sm font-semibold tracking-wide">
+          復興高中<br />智慧出缺勤系統
+        </span>
+        <div class="pl-24 flex absolute right-5">
+          <span class="text-white text-right text-xs tracking-wider">
+            {{ formattedDate }} {{ getSessionName(1) }} 國文
+          </span>
+        </div>
+      </div>
+    </nav>
+    <button class="text-2xl fixed left-4 top-20 text-center" @click="goBack">
+      ←
+    </button>
+    <div class="p-10"></div>
+    <div class="flex flex-col justify-center items-center gap-2">
+      <Student />
+      <Student />
+    </div>
+    <div class="flex justify-center items-center p-8 bg-[#FEFAF7]">
+      <button>
+        <div class="bg-[#3D3D3D] text-white font-semibold rounded-md py-2 px-5">
+          送出
+        </div>
+      </button>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import Student from "../components/Student.vue";
+import { ref, onMounted } from "vue";
+import { useRouter } from "vue-router";
+import { useRoute } from "vue-router"; // Import useRoute
+let currentHour = new Date().getHours();
+let currentMinute = new Date().getMinutes();
+const formattedDate = ref("");
+
+const formatDate = (date) => {
+  const options = {
+    weekday: "long",
+  };
+
+  const formatted = new Intl.DateTimeFormat("default", options).format(
+    new Date(date)
+  );
+
+  return formatted;
+};
+
+onMounted(() => {
+  const currentDate = new Date();
+  formattedDate.value = formatDate(currentDate);
+});
+
+const getSessionName = (sessionIndex) => {
+  if (sessionIndex === 1) {
+    if (currentHour === 8 && currentMinute >= 0 && currentMinute <= 59) {
+      return "節次一";
+    }
+  } else if (sessionIndex === 2) {
+    if (currentHour === 9 && currentMinute >= 0 && currentMinute <= 59) {
+      return "節次二";
+    }
+  } else if (sessionIndex === 3) {
+    if (currentHour === 10 && currentMinute >= 0 && currentMinute <= 59) {
+      return "節次三";
+    }
+  } else if (sessionIndex === 4) {
+    if (currentHour === 11 && currentMinute >= 0 && currentMinute <= 59) {
+      return "節次四";
+    }
+  } else if (sessionIndex === 5) {
+    if (
+      (currentHour === 12 && currentMinute >= 50 && currentMinute <= 59) ||
+      (currentHour === 13 && currentMinute >= 0 && currentMinute <= 49)
+    ) {
+      return "節次五";
+    }
+  } else if (sessionIndex === 6) {
+    if (
+      (currentHour === 13 && currentMinute >= 50 && currentMinute <= 59) ||
+      (currentHour === 14 && currentMinute >= 0 && currentMinute <= 49)
+    ) {
+      return "節次六";
+    }
+  } else if (sessionIndex === 7) {
+    if (
+      (currentHour === 14 && currentMinute >= 50 && currentMinute <= 59) ||
+      (currentHour === 15 && currentMinute >= 0 && currentMinute <= 59)
+    ) {
+      return "節次七";
+    }
+  }
+
+  return "非上課時段";
+};
+
+const goBack = () => {
+  const router = useRouter();
+  router.back();
+};
+</script>
