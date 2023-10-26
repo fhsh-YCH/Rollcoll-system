@@ -34,10 +34,11 @@ const loginWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
     const afterSignIn = await signInWithPopup(auth, provider);
 
-    const idTokenValue = afterSignIn.user.stsTokenManager.accessToken;
-
-    // console.log(afterSignIn);
+    console.log(afterSignIn);
     console.log("Success!");
+
+    const idTokenValue = afterSignIn.user.stsTokenManager.accessToken;
+    console.log("ID Token:", idTokenValue);
 
     const requestData = {
       id_token: idTokenValue,
@@ -45,18 +46,20 @@ const loginWithGoogle = async () => {
 
     const headers = {
       "Content-Type": "application/json",
-      // Authorization: `Bearer ${idTokenValue}`,
+      Authorization: `Bearer ${idTokenValue}`,
     };
 
     axios
-      .post("https://server-api.fhh4ck3rs.taipei/auth/login", requestData, {
-        headers,
-      })
+      .post(
+        "https://c95a-2407-4d00-1c03-7e47-9897-12d5-bf1f-ab60.ngrok-free.app/auth/login",
+        requestData,
+        { headers }
+      )
       .then((response) => {
         const { userId, userEmail } = response.data;
-        // console.log(
-        //   `Received data from the backend - token: ${userId}, userEmail: ${userEmail}`
-        // );
+        console.log(
+          `Received data from the backend - userId: ${userId}, userEmail: ${userEmail}`
+        );
 
         redirectToNextPage();
       })

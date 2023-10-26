@@ -12,11 +12,9 @@ const goBack = () => {
   router.back();
 };
 
-// 创建用于存储日期的 ref
 const currentDate = ref("");
 const formattedDate = ref("");
 
-// 格式化日期的函数
 const formatDate = (date) => {
   const options = {
     weekday: "long",

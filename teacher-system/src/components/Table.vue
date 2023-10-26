@@ -1,7 +1,7 @@
 <template>
   <div class="w-screen bg-[#FEFAF7]">
     <div
-      v-for="(curriculum, index) in fakeData.curriculums"
+      v-for="(curriculum, index) in Json.curriculums"
       :key="curriculum.id"
       class="flex justify-center items-center mb-3"
     >
@@ -16,9 +16,17 @@
       >
         <button
           class="w-60 h-20 text-left pl-12"
-          @click="navigateToName(curriculum.id)"
+          @click="
+            curriculum.class === '    ' || !curriculum.class
+              ? NoClass()
+              : navigateToName(curriculum.id)
+          "
         >
-          <span>{{ curriculum.class }} {{ curriculum.session_name }}</span>
+          <span>{{
+            curriculum.class === "    " || !curriculum.class
+              ? "沒課！"
+              : curriculum.class + " " + curriculum.session_name
+          }}</span>
         </button>
       </div>
     </div>
@@ -28,20 +36,33 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import axios from "axios";
+import Json from "../mark/data.json";
 
 const fakeData = ref([]);
 
 onMounted(async () => {
   try {
-    const response = await axios.get("../data.json");
-    fakeData.value = response.data;
+    // const response = await axios.get("../mark/data.json");
+    // fakeData.value = response.data;
+    fakeData.value = Json;
   } catch (error) {
     console.error("Error loading JSON data", error);
   }
 });
 
-const navigateToName = () => {
-  router.push("/name");
+// onMounted(async () => {
+//   try {
+//     fakeData.value = json;
+//   } catch (error) {
+//     console.error("Error loading JSON data", error);
+//   }
+// });
+
+const navigateToName = (curriculum) => {
+  router.push({
+    path: "/name",
+    query: { sessionName: curriculum.session_name },
+  });
 };
 
 import { useRouter } from "vue-router";
@@ -81,6 +102,9 @@ const isTimeInRange = (index) => {
     default:
       return false;
   }
+};
+const NoClass = async () => {
+  alert("太好了～這節沒課！");
 };
 </script>
 <style scoped>

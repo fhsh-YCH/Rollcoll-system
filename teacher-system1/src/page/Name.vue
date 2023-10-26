@@ -9,10 +9,7 @@
         </span>
         <div class="pl-24 flex absolute right-5">
           <span class="text-white text-right text-xs tracking-wider">
-            {{ formattedDate }} {{ getSessionName(1) }}
-          </span>
-          <span class="text-white text-right text-xs tracking-wider pl-1">
-            {{ sessionName }}
+            {{ formattedDate }} {{ getSessionName(1) }} 國文
           </span>
         </div>
       </div>
@@ -22,10 +19,11 @@
     </button>
     <div class="p-10"></div>
     <div class="flex flex-col justify-center items-center gap-2">
-      <Student ref="studentComponent" />
+      <Student />
+      <Student />
     </div>
     <div class="flex justify-center items-center p-8 bg-[#FEFAF7]">
-      <button @click="submitAttendance">
+      <button>
         <div class="bg-[#3D3D3D] text-white font-semibold rounded-md py-2 px-5">
           送出
         </div>
@@ -38,12 +36,10 @@
 import Student from "../components/Student.vue";
 import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
-import { useRoute } from "vue-router";
+import { useRoute } from "vue-router"; // Import useRoute
 let currentHour = new Date().getHours();
 let currentMinute = new Date().getMinutes();
 const formattedDate = ref("");
-const route = useRoute();
-const sessionName = route.query.sessionName;
 
 const formatDate = (date) => {
   const options = {
@@ -104,24 +100,9 @@ const getSessionName = (sessionIndex) => {
 
   return "非上課時段";
 };
-const router = useRouter();
+
 const goBack = () => {
+  const router = useRouter();
   router.back();
-};
-
-const fakeData = ref([]);
-
-const submitAttendance = () => {
-  if (fakeData.value && fakeData.value.students) {
-    fakeData.value.students.forEach((student) => {
-      const status = student.status || "準時";
-      console.log(
-        `${student.class}${student.seatnumber} ${student.name} - 狀態: ${status}`
-      );
-    });
-  } else {
-    console.log(" ");
-  }
-  router.push("/home");
 };
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div
-    v-for="(student, index) in fakeData.students"
+    v-for="(student, index) in Json.students"
     :key="student.id"
     class="border border-[#000000] rounded-md flex justify-center items-center flex-col w-72 py-3 ml-6 bg-white"
   >
@@ -57,15 +57,22 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import axios from "axios";
-
 import Json from "../mark/data.json";
 
 const fakeData = ref([]);
 
+const selectStatus = (status, studentId) => {
+  const student = fakeData.value.students.find((s) => s.id === studentId);
+  if (student) {
+    student.status = status;
+  }
+};
+
 onMounted(async () => {
   try {
-    // const response = await axios.get("../mark/data.json");
+    // const response = await axios.get("./data.json");
     // fakeData.value = response.data;
+
     Json.students.forEach((student) => (student.status = "準時"));
     fakeData.value = Json;
     console.log("Data loaded successfully:", fakeData.value.students);
@@ -74,23 +81,6 @@ onMounted(async () => {
   }
 });
 
-// onMounted(async () => {
-//   try {
-//     const response = await axios.get(".data.json");
-
-//     response.data.students.forEach((student) => (student.status = "準時"));
-//     fakeData.value = response.data;
-//     console.log("Data loaded successfully:", fakeData.value.students);
-//   } catch (error) {
-//     console.error("Error loading JSON data", error);
-//   }
-// });
-const selectStatus = (status, studentId) => {
-  const student = fakeData.value.students.find((s) => s.id === studentId);
-  if (student) {
-    student.status = status;
-  }
-};
 const NotOpenYet = async () => {
   alert("尚未開放");
 };

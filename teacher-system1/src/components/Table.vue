@@ -1,53 +1,24 @@
-<!-- <template>
-  <div class="w-screen bg-[#FEFAF7]">
-    <div
-      v-for="index in 7"
-      :key="index"
-      class="flex justify-center items-center mb-2"
-    >
-      <div
-        class="bg-[#4B526D] text-white rounded-md px-5 py-1 border border-[#4B526D] text-center"
-      >
-        <span>第<br />{{ index }}<br />節</span>
-      </div>
-      <div
-        class="border border-[#4B526D] rounded-md text-[#4B526D] font-bold text-2xl bg-white"
-      >
-        <button class="px-14 py-6" @click="navigateToName">
-          <span>{{}}xxx班 課程</span>
-        </button>
-      </div>
-    </div>
-  </div>
-</template>
-<script setup>
-import { useRouter } from "vue-router";
-
-const router = useRouter();
-
-const navigateToName = () => {
-  router.push("/name");
-};
-</script> -->
-
 <template>
   <div class="w-screen bg-[#FEFAF7]">
     <div
-      v-for="index in 9"
-      :key="index"
-      class="flex justify-center items-center mb-2"
+      v-for="(curriculum, index) in fakeData.curriculums"
+      :key="curriculum.id"
+      class="flex justify-center items-center mb-3"
     >
       <div
         class="bg-[#4B526D] text-white rounded-md px-5 py-1 border border-[#4B526D] text-center"
       >
-        <span>第<br />{{ index }}<br />節</span>
+        <span>第<br />{{ curriculum.session }}<br />節</span>
       </div>
       <div
-        :class="{ blink: isTimeInRange(index) }"
+        :class="{ blink: isTimeInRange(index + 1) }"
         class="border border-[#4B526D] rounded-md text-[#4B526D] font-bold text-2xl bg-white"
       >
-        <button class="px-14 py-6" @click="navigateToName">
-          <span>{{}}xxx班 課程</span>
+        <button
+          class="w-60 h-20 text-left pl-12"
+          @click="navigateToName(curriculum.id)"
+        >
+          <span>{{ curriculum.class }} {{ curriculum.session_name }}</span>
         </button>
       </div>
     </div>
@@ -55,13 +26,27 @@ const navigateToName = () => {
 </template>
 
 <script setup>
-import { useRouter } from "vue-router";
+import { ref, onMounted } from "vue";
+import axios from "axios";
 
-const router = useRouter();
+const fakeData = ref([]);
+
+onMounted(async () => {
+  try {
+    const response = await axios.get("../data.json");
+    fakeData.value = response.data;
+  } catch (error) {
+    console.error("Error loading JSON data", error);
+  }
+});
 
 const navigateToName = () => {
   router.push("/name");
 };
+
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 const isTimeInRange = (index) => {
   const now = new Date();
@@ -101,7 +86,6 @@ const isTimeInRange = (index) => {
 <style scoped>
 .blink {
   animation: blink 2s infinite;
-  color: white;
 }
 
 @keyframes blink {
