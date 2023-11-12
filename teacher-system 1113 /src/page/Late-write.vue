@@ -27,13 +27,14 @@
             </svg>
           </button>
           <Modal
-            :isModalOpen="isModalOpen"
             :common1="common1"
             :common2="common2"
             :common3="common3"
             :common4="common4"
             :common5="common5"
             @saveCommons="saveCommons"
+            :isModalOpen="isModalOpen"
+            @closeModal="isModalOpen = false"
           />
 
           <!-- <Modal :isModalOpen="isModalOpen" @closeModal="isModalOpen = false" /> -->
@@ -53,7 +54,7 @@
         <!-- 年級 -->
         <div class="flex gap-3">
           <span class="font-semibold text-[#3D3D3D] text-xl">年級：</span>
-          <form class="flex gap-2 text-[#3D3D3D] text-lg">
+          <form class="flex gap-5 text-[#3D3D3D] text-lg">
             <div class="flex items-center gap-2">
               <input
                 type="radio"
@@ -159,7 +160,7 @@
             placeholder="Type here..."
           />
         </div> -->
-        <div class="flex flex-col pt-2">
+        <div class="flex flex-col">
           <span class="font-semibold text-left text-[#3D3D3D] text-xl"
             >晚到事由：</span
           >
@@ -169,7 +170,7 @@
             type="text"
             id="lateReason"
             name="lateReason"
-            class="bg-[#fff] border border-black py-12 px-6 rounded-md text-center"
+            class="bg-[#fff] border border-black py-12 px-10 rounded-md text-center"
             placeholder="Type here..."
           />
         </div>
@@ -182,9 +183,9 @@
         >
           <button
             class="bg-white px-3 py-2 border border-black rounded-full flex-none"
-            @click="updateLateReason('資訊組公務')"
+            @click="updateLateReason('執勤')"
           >
-            資訊組公務
+            執勤
           </button>
           <button
             class="bg-white px-3 py-2 border border-black rounded-full flex-none"
@@ -198,8 +199,14 @@
           >
             討論作業
           </button>
+          <button
+            class="bg-white px-3 py-2 border border-black rounded-full flex-none"
+          >
+            {{ common1 }}
+          </button>
         </div>
       </div>
+
       <!-- <div
         class="flex overflow-x-scroll justify-start items-center gap-3 w-60 h-13 py-1"
       >
@@ -276,15 +283,14 @@ const save = () => {
   const userData = {
     grade: selectedGrade.value,
     classroom: selectedClassroom.value,
-    number: selectedNumber.value,
+    seatnumber: selectedNumber.value,
     lateReason: lateReason.value,
   };
   console.log("LateModalContent:", userData);
 
   router.push("/home");
-
-  // emit("closeModal");
 };
+
 import Modal from "../components/Modal.vue";
 
 const isModalOpen = ref(false);

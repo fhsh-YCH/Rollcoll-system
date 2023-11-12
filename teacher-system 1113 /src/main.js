@@ -14,6 +14,8 @@ import router from "./router";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 
+// createApp(App).use(router).mount("#app");
+
 const firebaseConfig = {
   apiKey: "AIzaSyCPrG62ni_x41gyDs8UZpE5-LgIsTu0TTI",
   authDomain: "teacher-system-1b511.firebaseapp.com",

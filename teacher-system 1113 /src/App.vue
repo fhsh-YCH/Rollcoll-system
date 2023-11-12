@@ -5,17 +5,20 @@
 // import Revise from "./page/Revise.vue";
 // import Name from "./page/Name.vue";
 // import Modal from "./components/Modal.vue";
-import { ref } from "vue";
 
-const isLoading = ref(false);
+// import { ref } from "vue";
+// import { req, data_arrive_model_control } from "./utils.js";
+// req();
 
-const showLoading = () => {
-  isLoading.value = true;
-};
+// const isLoading = ref(false);
 
-const hideLoading = () => {
-  isLoading.value = false;
-};
+// const showLoading = () => {
+//   isLoading.value = true;
+// };
+
+// const hideLoading = () => {
+//   isLoading.value = false;
+// };
 </script>
 
 <template>
@@ -48,14 +51,27 @@ const hideLoading = () => {
           <router-link to="/tutorclass"></router-link>
           <router-link to="/classdaytable"></router-link>
           <router-link to="/latewrite"></router-link>
+          <router-link to="/executivereport"></router-link>
+          <router-link to="/executiveresult"></router-link>
+          <router-link to="/noclass"></router-link>
+          <router-link to="/401"></router-link>
+          <router-link to="/403"></router-link>
+          <router-link to="/404"></router-link>
+          <router-link to="/500"></router-link>
+          <router-link to="/lateproof"></router-link>
         </nav>
         <router-view />
       </div>
 
-      <div v-if="isLoading" class="spinner">
-        <div class="dot1"></div>
-        <div class="dot2"></div>
-      </div>
+      <!-- <div
+        v-if="data_arrive_model_control.is_open"
+        class="h-mobile-screen fixed inset-0 flex w-screen items-center justify-center bg-black/60"
+      >
+        <div class="spinner fixed z-50">
+          <div class="dot1"></div>
+          <div class="dot2"></div>
+        </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -73,12 +89,12 @@ const hideLoading = () => {
 
 .dot1,
 .dot2 {
-  width: 60%;
-  height: 60%;
+  width: 80%;
+  height: 80%;
   display: inline-block;
   position: absolute;
   top: 0;
-  background-color: #333;
+  background-color: #fff;
   border-radius: 100%;
 
   -webkit-animation: sk-bounce 2s infinite ease-in-out;

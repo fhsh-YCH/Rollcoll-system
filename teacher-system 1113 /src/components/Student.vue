@@ -58,7 +58,7 @@
 import { ref, onMounted } from "vue";
 import axios from "axios";
 
-import Json from "../mark/data.json";
+import Json from "../mark/student.json";
 
 const fakeData = ref([]);
 

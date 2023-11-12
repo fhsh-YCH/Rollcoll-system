@@ -1,5 +1,5 @@
 <template>
-  <div class="w-screen bg-[#FEFAF7]">
+  <div class="bg-[#FEFAF7]">
     <div
       v-for="(curriculum, index) in Json.curriculums"
       :key="curriculum.id"
@@ -15,7 +15,7 @@
         class="border border-[#4B526D] rounded-md text-[#4B526D] font-bold text-2xl bg-white"
       >
         <button
-          class="w-60 h-20 text-left pl-12"
+          class="w-60 h-20 text-center"
           @click="
             curriculum.class === '    ' || !curriculum.class
               ? NoClass()
@@ -36,7 +36,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import axios from "axios";
-import Json from "../mark/data.json";
+import Json from "../mark/curriculums.json";
 
 const fakeData = ref([]);
 
@@ -99,6 +99,10 @@ const isTimeInRange = (index) => {
         (currentHour === 14 && currentMinute >= 50 && currentMinute <= 59) ||
         (currentHour === 15 && currentMinute >= 0 && currentMinute <= 59)
       );
+    case 8:
+      return currentHour === 16 && currentMinute >= 10 && currentMinute <= 59;
+    case 9:
+      return currentHour === 17 && currentMinute >= 10 && currentMinute <= 59;
     default:
       return false;
   }

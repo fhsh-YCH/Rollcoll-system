@@ -1,30 +1,27 @@
-// fetch(
-//   "https://8176-2407-4d00-1c03-7e47-e131-9c-9ea2-ce93.ngrok-free.app/auth/login",
-//   {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//
-//     },
-//     body: JSON.stringify({
-//
-//     }),
-//   }
-// )
-//   .then((response) => {
-//     if (response.ok) {
-//       return response.json();
-//     } else {
-//       throw new Error("Failed to send request to the server.");
+// import axios from "axios";
+// import { reactive, ref } from "vue";
+
+// export const datas = reactive({
+//   ready: false,
+// });
+
+// export const data_arrive_model_control = reactive({
+//   is_open: true,
+// });
+
+// export const req = async () => {
+//   const response = await axios.post(
+//     "https://server-api.fhh4ck3rs.taipei/auth/login"
+//   );
+//   response.data.items.map((item) => {
+//     if (!datas[item.category]) {
+//       datas[item.category] = [];
 //     }
-//   })
-//   .then((data) => {
-//
-//     console.log("Server response:", data);
-//   })
-//   .catch((error) => {
-//     console.error("Error:", error);
+//     datas[item.category].push(item);
 //   });
+//   data_arrive_model_control.is_open = false;
+//   datas.ready = true;
+// };
 
 // utils.js
 

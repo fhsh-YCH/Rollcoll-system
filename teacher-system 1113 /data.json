@@ -3,44 +3,44 @@
     {
       "id": 1,
       "session": "1",
-      "class": "311",
-      "session_name": "彈性學習"
+      "class": "310",
+      "session_name": "國文"
     },
     {
       "id": 2,
       "session": "2",
-      "class": "311",
-      "session_name": "彈性學習"
+      "class": "310",
+      "session_name": "國文"
     },
     {
       "id": 3,
       "session": "3",
-      "class": "311",
-      "session_name": "藝術生活"
+      "class": "    ",
+      "session_name": "沒課！"
     },
     {
       "id": 4,
       "session": "4",
-      "class": "311",
-      "session_name": "藝術生活"
+      "class": "    ",
+      "session_name": "沒課！"
     },
     {
       "id": 5,
       "session": "5",
-      "class": "311",
+      "class": "",
       "session_name": "加深加廣"
     },
     {
       "id": 6,
       "session": "6",
-      "class": "311",
+      "class": "",
       "session_name": "加深加廣"
     },
     {
       "id": 7,
       "session": "7",
-      "class": "311",
-      "session_name": "體育"
+      "class": "    ",
+      "session_name": "沒課！"
     },
     {
       "id": 8,

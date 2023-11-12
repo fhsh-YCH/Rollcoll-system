@@ -63,6 +63,10 @@ onMounted(() => {
 });
 
 const getSessionName = (sessionIndex) => {
+  const now = new Date();
+  const currentHour = now.getHours();
+  const currentMinute = now.getMinutes();
+
   if (sessionIndex === 1) {
     if (currentHour === 8 && currentMinute >= 0 && currentMinute <= 59) {
       return "節次一";
