@@ -10,11 +10,15 @@
       </div>
     </nav>
     <div class="p-12"></div>
-    <button class="text-2xl fixed left-4 top-20 text-center" @click="goBack">
+    <button
+      class="text-2xl fixed left-4 top-20 text-center lg:top-28 lg:text-4xl lg:left-8 md:text-3xl md:left-6"
+      @click="goBack"
+    >
       ←
     </button>
     <div class="flex flex-col items-center">
-      <span class="text-3xl font-bold pb-10 text-[#3d3d3d] pt-12"
+      <span
+        class="md:pt-12 pt-8 text-2xl font-bold pb-8 md:pb-10 md:text-4xl lg:text-4xl"
         >選擇日期與學生</span
       >
       <form
@@ -24,9 +28,10 @@
         <!-- 輸入元素和按鈕 -->
         <div class="flex-col flex gap-8">
           <div class="gap-2 flex items-center">
-            <span class="text-xl font-semibold justify-start pl-4">日期：</span
+            <span class="text-lg font-semibold md:text-xl justify-start pl-2"
+              >日期：</span
             ><input
-              class="rounded-md bg-white drop-shadow-md py-3 w-64 px-2"
+              class="rounded-md bg-white h-12 w-52 px-2 md:w-60 md:h-14 box-shadow"
               type="date"
               id="searchdate"
               name="searchdate"
@@ -37,11 +42,11 @@
           </div>
 
           <div class="gap-2 flex items-center">
-            <span class="text-xl font-semibold justify-start pl-4"
+            <span class="text-lg font-semibold md:text-xl justify-start pl-2"
               >年級：
             </span>
             <select
-              class="rounded-md bg-white drop-shadow-md py-3 w-64 px-2"
+              class="rounded-md bg-white drop-shadow-md h-12 w-52 px-2 md:w-60 md:h-14"
               id="searchgrade"
               name="searchgrade"
               required
@@ -53,9 +58,11 @@
             </select>
           </div>
           <div class="gap-2 flex items-center">
-            <span class="text-xl font-semibold justify-start pl-4">班級：</span>
+            <span class="text-lg font-semibold md:text-xl justify-start pl-2"
+              >班級：</span
+            >
             <select
-              class="rounded-md bg-white drop-shadow-md py-3 w-64 px-2"
+              class="rounded-md bg-white drop-shadow-md h-12 w-52 px-2 md:w-60 md:h-14"
               id="searchclass"
               name="searchclass"
               required
@@ -86,10 +93,12 @@
             </select>
           </div>
           <div class="gap-2 flex items-center">
-            <span class="text-xl font-semibold justify-start pl-4">座號：</span>
+            <span class="text-lg font-semibold md:text-xl justify-start pl-2"
+              >座號：</span
+            >
 
             <select
-              class="rounded-md bg-white drop-shadow-md py-3 w-64 px-2"
+              class="rounded-md bg-white drop-shadow-md h-12 w-52 px-2 md:w-60 md:h-14"
               id="searchseatnumber"
               name="searchseatnumber"
               required
@@ -180,3 +189,8 @@ const submitForm = () => {
   router.push("/executiveresult");
 };
 </script>
+<style scoped>
+.box-shadow {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+</style>

@@ -1,7 +1,7 @@
 <template>
   <div class="h-screen bg-[#FEFAF7]">
     <nav
-      class="bg-[#363C56] py-2 pl-6 w-screen fixed left-0 right-0 top-0 z-20"
+      class="bg-[#363C56] py-2 pl-6 w-screen fixed left-0 right-0 top-0 z-20 lg:py-5 lg:pl-10"
     >
       <span class="text-white font-inter text-xs font-semibold tracking-wide"
         >復興高中<br />智慧出缺勤系統</span

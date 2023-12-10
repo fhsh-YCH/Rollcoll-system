@@ -2,9 +2,11 @@
   <div class="h-screen bg-[#FEFAF7]">
     <!-- navbar -->
     <nav
-      class="bg-[#363C56] py-2 pl-6 w-screen fixed left-0 right-0 top-0 z-20"
+      class="bg-[#363C56] py-2 pl-6 w-screen fixed left-0 right-0 top-0 z-20 lg:py-4 lg:pl-10"
     >
-      <span class="text-white font-inter text-xs font-semibold tracking-wide">
+      <span
+        class="text-white font-inter text-xs font-semibold tracking-wide lg:text-lg"
+      >
         復興高中<br />智慧出缺勤系統
       </span>
     </nav>
@@ -12,9 +14,10 @@
     <div class="flex justify-center items-center">
       <div class="py-64"></div>
       <button
-        class="bg-[#4B526D] py-5 px-12 rounded-xl text-center shadow-md"
+        class="bg-[#4B526D] py-5 px-8 rounded-xl text-center shadow-md flex justify-center items-center gap-5"
         @click="loginWithGoogle"
       >
+        <img src="../assets/search.png" class="w-10" />
         <span class="text-white font-bold text-3xl">Google 登入</span>
       </button>
     </div>
@@ -26,6 +29,7 @@ import { ref, onMounted } from "vue";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth"; // firebaselogin
 import axios from "axios"; // connect to axios
 import { useRouter } from "vue-router"; // vue-router
+import Google from "../assets/search.png";
 
 const auth = getAuth();
 const router = useRouter();

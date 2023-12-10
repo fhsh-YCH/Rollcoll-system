@@ -35,11 +35,20 @@ const goBack = () => {
       </div>
     </nav>
     <div class="p-12"></div>
-    <button class="text-2xl fixed left-3 top-24 text-center" @click="goBack">
+    <button
+      class="text-2xl fixed left-4 top-20 text-center lg:top-28 lg:text-4xl lg:left-8 md:text-3xl md:left-6"
+      @click="goBack"
+    >
       ←
     </button>
-    <div class="flex flex-col justify-center items-center gap-2">
-      <Result />
+    <div class="md:flex md:justify-center md:items-center bg-[#FEFAF7]">
+      <div
+        class="flex flex-col justify-center items-center gap-2 lg:grid-cols-3 lg:w-10/11 md:grid-cols-2 md:grid md:gap-3 md:pl-6 lg:ml-6"
+      >
+        <Result />
+      </div>
     </div>
+
+    <div class="bg-[#FEFAF7] p-4"></div>
   </div>
 </template>

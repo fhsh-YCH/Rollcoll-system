@@ -2,14 +2,14 @@
   <div
     v-for="(student, index) in students"
     :key="student.id"
-    class="py-4 px-2 border border-[#000000] rounded-md flex justify-center flex-col w-80 ml-7 bg-white"
+    class="py-4 px-2 border border-[#000000] rounded-md flex justify-center flex-col w-72 md:w-80 ml-7 bg-white"
   >
     <div class="flex flex-col">
       <span class="font-bold text-xl pl-2"
         >{{ student.class }}{{ student.seatnumber }} {{ student.name }}</span
       >
       <span class="pl-3 text-sm font-semibold py-1">出席狀態：</span>
-      <div class="pl-3 pt-2 flex gap-2">
+      <div class="pl-3 pt-2 flex gap-1 md:gap-2">
         <div
           id="curriculum_1"
           :class="{

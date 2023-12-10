@@ -1,10 +1,10 @@
 <template>
   <div class="h-screen bg-[#FEFAF7]">
     <nav
-      class="bg-[#363C56] py-3 pl-6 w-screen fixed left-0 right-0 top-0 z-20"
+      class="bg-[#363C56] py-3 pl-6 w-screen fixed left-0 right-0 top-0 z-20 lg:py-4 lg:pl-10"
     >
       <div class="flex items-center">
-        <span class="text-white text-sm font-semibold tracking-wide"
+        <span class="text-white text-sm font-semibold tracking-wide lg:text-lg"
           >復興高中<br />智慧出缺勤系統</span
         >
         <div class="pl-24 flex absolute right-5">
@@ -41,19 +41,26 @@
         </div>
       </div>
     </nav>
-    <button class="text-2xl fixed left-6 top-24 text-center" @click="goBack">
+    <button
+      class="text-2xl fixed left-6 top-24 text-center md:text-3xl"
+      @click="goBack"
+    >
       ←
     </button>
 
-    <div class="p-12"></div>
+    <div class="p-12 md:p-20 lg:p-16"></div>
 
-    <div class="flex flex-col items-center">
-      <span class="text-2xl font-bold pb-8">晚到證明填寫</span>
+    <div class="flex flex-col items-center bg-[#FEFAF7]">
+      <span class="text-2xl font-bold pb-8 md:pb-10 md:text-4xl lg:text-4xl"
+        >晚到證明填寫</span
+      >
 
-      <div class="flex flex-col gap-10 justify-center items-start px-14">
-        <!-- 年級 -->
-        <div class="flex gap-3">
-          <span class="font-semibold text-[#3D3D3D] text-xl">年級：</span>
+      <div class="flex flex-col gap-10 justify-center items-start px-10">
+        <!--// 年級 <div class="flex gap-3">
+          <span
+            class="font-semibold text-[#3D3D3D] text-xl md:text-2xl lg:text-3xl"
+            >年級：</span
+          >
           <form class="flex gap-5 text-[#3D3D3D] text-lg">
             <div class="flex items-center gap-2">
               <input
@@ -63,7 +70,8 @@
                 id="one"
                 v-model="selectedGrade"
               />
-              <label class="text-xl" for="one">1</label><br />
+              <label class="text-xl md:text-2xl lg:text-3xl" for="one">1</label
+              ><br />
             </div>
 
             <div class="flex items-center gap-2">
@@ -74,7 +82,8 @@
                 id="two"
                 v-model="selectedGrade"
               />
-              <label class="text-xl" for="two">2</label><br />
+              <label class="text-xl md:text-2xl lg:text-3xl" for="two">2</label
+              ><br />
             </div>
 
             <div class="flex items-center gap-2">
@@ -85,15 +94,19 @@
                 id="three"
                 v-model="selectedGrade"
               />
-              <label class="text-xl" for="three">3</label><br />
+              <label class="text-xl md:text-2xl lg:text-3xl" for="three"
+                >3</label
+              ><br />
             </div>
           </form>
         </div>
 
-        <!-- 班級 -->
+        // 班級 
         <div class="">
           <div class="flex gap-3">
-            <label for="classroom" class="font-semibold text-xl text-[#3D3D3D]"
+            <label
+              for="classroom"
+              class="font-semibold text-xl text-[#3D3D3D] md:text-2xl lg:text-3xl"
               >班級：</label
             >
             <select
@@ -113,10 +126,12 @@
           </div>
         </div>
 
-        <!-- 座號 -->
+        // 座號 
         <div>
           <div class="flex gap-3">
-            <label for="number" class="font-semibold text-[#3D3D3D] text-xl"
+            <label
+              for="number"
+              class="font-semibold text-[#3D3D3D] text-xl md:text-2xl lg:text-3xl"
               >座號：</label
             >
             <select
@@ -130,7 +145,7 @@
               </option>
             </select>
           </div>
-        </div>
+        </div> -->
 
         <!-- 離開時間
           <div class="flex items-center">
@@ -160,17 +175,120 @@
             placeholder="Type here..."
           />
         </div> -->
-        <div class="flex flex-col">
-          <span class="font-semibold text-left text-[#3D3D3D] text-xl"
-            >晚到事由：</span
+        <div class="gap-2 flex items-center">
+          <span class="text-lg font-semibold md:text-xl justify-start pl-2"
+            >年級：
+          </span>
+          <select
+            class="rounded-md bg-white drop-shadow-md h-12 w-52 px-2 md:w-60 md:h-14"
+            id="searchgrade"
+            name="searchgrade"
+            required
           >
+            <option value="" disabled selected>請選擇</option>
+            <option value="1" id="grade1">1</option>
+            <option value="2" id="grade2">2</option>
+            <option value="3" id="grade3">3</option>
+          </select>
+        </div>
+        <div class="gap-2 flex items-center">
+          <span class="text-lg md:text-xl font-semibold justify-start pl-2"
+            >班級：</span
+          >
+          <select
+            class="rounded-md bg-white drop-shadow-md h-12 w-52 px-2 md:w-60 md:h-14"
+            id="searchclass"
+            name="searchclass"
+            required
+          >
+            <option value="" disabled selected>請選擇</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+          </select>
+        </div>
+        <div class="gap-2 flex items-center">
+          <span class="text-lg md:text-xl font-semibold justify-start pl-2"
+            >座號：</span
+          >
+
+          <select
+            class="rounded-md bg-white drop-shadow-md h-12 w-52 px-2 md:w-60 md:h-14"
+            id="searchseatnumber"
+            name="searchseatnumber"
+            required
+          >
+            <option value="" disabled selected>請選擇</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+            <option value="29">29</option>
+            <option value="30">30</option>
+            <option value="31">31</option>
+            <option value="32">32</option>
+            <option value="33">33</option>
+            <option value="34">34</option>
+            <option value="35">35</option>
+            <option value="36">36</option>
+            <option value="37">37</option>
+            <option value="38">38</option>
+            <option value="39">39</option>
+            <option value="40">40</option>
+          </select>
+        </div>
+        <div class="flex flex-col lg:pl-4 pl-2">
+          <span class="font-semibold text-left text-lg">晚到事由：</span>
           <div class="p-1"></div>
           <input
             v-model="lateReason"
             type="text"
             id="lateReason"
             name="lateReason"
-            class="bg-[#fff] border border-black py-12 px-10 rounded-md text-center"
+            class="bg-[#fff] border border-black py-12 lg:px-20 lg:py-16 px-14 md:px-20 md:py-16 rounded-md text-center"
             placeholder="Type here..."
           />
         </div>
@@ -179,7 +297,7 @@
       <!-- common words -->
       <div>
         <div
-          class="flex overflow-x-scroll justify-start items-center gap-3 w-60 h-13 py-1"
+          class="flex overflow-x-scroll justify-start items-center gap-3 w-72 px-3 lg:w-80 h-13 py-1"
         >
           <button
             class="bg-white px-3 py-2 border border-black rounded-full flex-none"
@@ -237,12 +355,12 @@
         </button>
       </div> -->
 
-      <div class="p-3"></div>
+      <div class="p-5 md:p-6"></div>
 
       <div class="flex gap-3">
-        <button class="cursor-pointer" @click="save">
+        <button class="cursor-pointer bg-[#FEFAF7]" @click="save">
           <div
-            class="bg-[#363C56] text-white font-semibold rounded-md py-2 px-5"
+            class="bg-[#363C56] text-white font-semibold rounded-md py-2 px-5 md:py-2 md:px-5 md:text-md"
           >
             送出
           </div>
@@ -255,6 +373,7 @@
             </div>
           </button> -->
       </div>
+      <div class="p-6"></div>
     </div>
   </div>
 </template>
