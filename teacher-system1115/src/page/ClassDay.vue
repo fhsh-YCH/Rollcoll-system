@@ -14,20 +14,7 @@ const goBack = () => {
 //   // 这里可以使用你的后端 API 请求逻辑
 //   // 假设你从后端获取了一个数组，每个元素包含出勤状态
 //   const responseFromBackend = [
-//     { status: "準時" },
-//     { status: "遲到" },
-//     { status: "缺席" },
-//     // ...
-//   ];
 
-//   // 将数据存储在 attendanceData ref 中
-//   attendanceData.value = responseFromBackend;
-// };
-
-// // 使用 onMounted 钩子来在组件挂载后发起请求
-// onMounted(() => {
-//   fetchDataFromBackend();
-// });
 </script>
 <template>
   <div class="h-screen bg-[#FEFAF7]">
