@@ -1,24 +1,4 @@
-<!-- <template>
-  <div
-    class="border border-[#000000] rounded-lg flex flex-col w-72 py-5 ml-6 bg-white"
-  >
-    <span class="font-bold text-xl pl-5">班級座號姓名</span>
-
-    <div class="p-1"></div>
-    <span class="font-semibold text-md pl-6">出席狀態：</span>
-    <div class="p-1"></div>
-    <div class="flex pl-6 gap-2">
-      <div
-        v-for="period in 7"
-        :key="period"
-        class="bg-[#e2e2e2] font-bold text-xs rounded-full w-7 text-center h-7 justify-center items-center flex"
-      >
-        {{ period }}
-      </div>
-    </div>
-  </div>
-</template> -->
-
+<!-- 暫不使用 -->
 <template>
   <div
     class="border border-[#000000] rounded-lg flex flex-col w-64 pr-1 py-3 ml-9 bg-white"

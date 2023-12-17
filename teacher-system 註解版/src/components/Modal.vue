@@ -1,3 +1,5 @@
+<!-- Late-write.vue 的 component -->
+
 <template>
   <div
     v-if="isModalOpen"
@@ -88,8 +90,6 @@
 <script setup>
 import { defineProps, ref, defineEmits } from "vue";
 
-// const { isModalOpen } = defineProps(["isModalOpen"]);
-
 const { common1, common2, common3, common4, common5, isModalOpen } =
   defineProps([
     "common1",
@@ -99,12 +99,6 @@ const { common1, common2, common3, common4, common5, isModalOpen } =
     "common5",
     "isModalOpen",
   ]);
-
-// const common1 = ref("");
-// const common2 = ref("");
-// const common3 = ref("");
-// const common4 = ref("");
-// const common5 = ref("");
 
 const emit = defineEmits();
 

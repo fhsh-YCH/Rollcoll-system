@@ -1,3 +1,5 @@
+<!-- Home.vue 的component -->
+<!-- "../mark/curriculums.json" 假資料 -->
 <template>
   <div class="bg-[#FEFAF7]">
     <div

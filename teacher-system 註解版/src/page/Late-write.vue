@@ -1,3 +1,6 @@
+<!-- page 晚到證明填寫 -->
+<!-- "../components/Modal.vue" 常用事由設定component -->
+
 <template>
   <div class="h-screen bg-[#FEFAF7]">
     <nav
@@ -56,125 +59,6 @@
       >
 
       <div class="flex flex-col gap-10 justify-center items-start px-10">
-        <!--// 年級 <div class="flex gap-3">
-          <span
-            class="font-semibold text-[#3D3D3D] text-xl md:text-2xl lg:text-3xl"
-            >年級：</span
-          >
-          <form class="flex gap-5 text-[#3D3D3D] text-lg">
-            <div class="flex items-center gap-2">
-              <input
-                type="radio"
-                name="grade"
-                value="one"
-                id="one"
-                v-model="selectedGrade"
-              />
-              <label class="text-xl md:text-2xl lg:text-3xl" for="one">1</label
-              ><br />
-            </div>
-
-            <div class="flex items-center gap-2">
-              <input
-                type="radio"
-                name="grade"
-                value="two"
-                id="two"
-                v-model="selectedGrade"
-              />
-              <label class="text-xl md:text-2xl lg:text-3xl" for="two">2</label
-              ><br />
-            </div>
-
-            <div class="flex items-center gap-2">
-              <input
-                type="radio"
-                name="grade"
-                value="three"
-                id="three"
-                v-model="selectedGrade"
-              />
-              <label class="text-xl md:text-2xl lg:text-3xl" for="three"
-                >3</label
-              ><br />
-            </div>
-          </form>
-        </div>
-
-        // 班級 
-        <div class="">
-          <div class="flex gap-3">
-            <label
-              for="classroom"
-              class="font-semibold text-xl text-[#3D3D3D] md:text-2xl lg:text-3xl"
-              >班級：</label
-            >
-            <select
-              name="classroom"
-              id="classroom"
-              class="py-1 px-6 border border-black rounded-md bg-white text-lg"
-              v-model="selectedClassroom"
-            >
-              <option
-                v-for="classroom in classrooms"
-                :key="classroom"
-                :value="classroom"
-              >
-                {{ classroom }}
-              </option>
-            </select>
-          </div>
-        </div>
-
-        // 座號 
-        <div>
-          <div class="flex gap-3">
-            <label
-              for="number"
-              class="font-semibold text-[#3D3D3D] text-xl md:text-2xl lg:text-3xl"
-              >座號：</label
-            >
-            <select
-              name="number"
-              id="number"
-              class="py-1 px-6 border border-black rounded-md bg-white text-lg"
-              v-model="selectedNumber"
-            >
-              <option v-for="number in numbers" :key="number" :value="number">
-                {{ number }}
-              </option>
-            </select>
-          </div>
-        </div> -->
-
-        <!-- 離開時間
-          <div class="flex items-center">
-            <span class="font-semibold text-[#3D3D3D]">離開時間：</span>
-            <input
-              v-model="leaveTime"
-              type="text"
-              id="leaveTime"
-              name="leaveTime"
-              class="bg-[#e2e2e2] px-2 rounded-md text-left text-md py-1"
-              placeholder="Type here..."
-            />
-          </div> -->
-
-        <!-- 晚到事由： -->
-        <!-- <div class="flex flex-col pt-2">
-          <span class="font-semibold text-left text-[#3D3D3D] text- xl"
-            >晚到事由：</span
-          >
-          <div class="p-1"></div>
-          <input
-            v-model="lateReason"
-            type="text"
-            id="lateReason"
-            name="lateReason"
-            class="bg-[#fff] border border-black py-12 px-6 rounded-md text-center"
-            placeholder="Type here..."
-          />
-        </div> -->
         <div class="gap-2 flex items-center">
           <span class="text-lg font-semibold md:text-xl justify-start pl-2"
             >年級：
@@ -325,36 +209,6 @@
         </div>
       </div>
 
-      <!-- <div
-        class="flex overflow-x-scroll justify-start items-center gap-3 w-60 h-13 py-1"
-      >
-        <button
-          class="bg-white px-3 py-2 border border-black rounded-full flex-none"
-        >
-          {{ common1 }}
-        </button>
-        <button
-          class="bg-white px-3 py-2 border border-black rounded-full flex-none"
-        >
-          {{ common2 }}
-        </button>
-        <button
-          class="bg-white px-3 py-2 border border-black rounded-full flex-none"
-        >
-          {{ common3 }}
-        </button>
-        <button
-          class="bg-white px-3 py-2 border border-black rounded-full flex-none"
-        >
-          {{ common4 }}
-        </button>
-        <button
-          class="bg-white px-3 py-2 border border-black rounded-full flex-none"
-        >
-          {{ common5 }}
-        </button>
-      </div> -->
-
       <div class="p-5 md:p-6"></div>
 
       <div class="flex gap-3">
@@ -365,13 +219,6 @@
             送出
           </div>
         </button>
-        <!-- <button @click="CloseModal" class="cursor-pointer">
-            <div
-              class="border border-[#3D3D3D] bg-[#4B526D] text-white rounded-lg text-center font-semibold px-2 py-1"
-            >
-              closed
-            </div>
-          </button> -->
       </div>
       <div class="p-6"></div>
     </div>

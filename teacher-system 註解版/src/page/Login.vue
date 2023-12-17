@@ -1,3 +1,4 @@
+<!-- page google login -->
 <template>
   <div class="h-screen bg-[#FEFAF7]">
     <!-- navbar -->
@@ -131,11 +132,6 @@ axios.interceptors.response.use(
                   // 刷新 storage (其他呼叫 api 的地方都會從此處取得新 access_token)
                   storage.token.value = response.data.jwtToken;
 
-                  // 刷新原始 request 的 access_token
-                  // originalRequest.headers.Authorization =
-                  //   "Bearer " + response.data.jwtToken;
-
-                  // 重送 request (with new access_token)
                   return axios(originalRequest);
                 })
                 .catch((err) => {

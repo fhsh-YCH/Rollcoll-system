@@ -46,7 +46,7 @@
           <router-link to="/"></router-link>
           <router-link to="/home"></router-link>
           <router-link to="/name"></router-link>
-          <router-link to="/revise"></router-link>
+          <!-- <router-link to="/revise"></router-link> -->
           <router-link to="/logina"></router-link>
           <router-link to="/tutorclass"></router-link>
           <router-link to="/classdaytable"></router-link>

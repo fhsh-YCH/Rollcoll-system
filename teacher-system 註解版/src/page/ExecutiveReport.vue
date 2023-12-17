@@ -1,10 +1,12 @@
+<!-- page 行政人員查看報表（查詢） -->
+<!-- 結果傳送到 ExecutiveReport.vue -->
 <template>
   <div class="h-screen bg-[#FEFAF7]">
     <nav
-      class="bg-[#363C56] py-3 pl-6 w-screen fixed left-0 right-0 top-0 z-20"
+      class="bg-[#363C56] py-3 pl-6 w-screen fixed left-0 right-0 top-0 z-20 lg:py-4 lg:pl-10"
     >
       <div class="flex items-center">
-        <span class="text-white text-sm font-semibold tracking-wide"
+        <span class="text-white text-sm font-semibold tracking-wide lg:text-lg"
           >復興高中<br />智慧出缺勤系統</span
         >
       </div>

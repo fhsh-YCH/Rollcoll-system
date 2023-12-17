@@ -1,6 +1,5 @@
+<!-- page 今日沒課 -->
 <script setup>
-import Table from "../components/Table.vue";
-
 import { ref, onMounted } from "vue";
 import { getAuth, signOut } from "firebase/auth";
 import { onAuthStateChanged } from "firebase/auth";
@@ -81,7 +80,7 @@ onAuthStateChanged(auth, (user) => {
 <template>
   <div class="h-screen w-screen bg-[#FEFAF7]">
     <nav
-      class="bg-[#363C56] py-3 pl-6 w-screen fixed left-0 right-0 top-0 z-20 lg:py-4 lg:pl-10"
+      class="bg-[#363C56] py-3 pl-6 w-screen fixed left-0 right-0 top-0 z-20 lg:py-5 lg:pl-10"
     >
       <div class="flex items-center">
         <span class="text-white text-sm font-semibold tracking-wide lg:text-lg"
@@ -111,13 +110,8 @@ onAuthStateChanged(auth, (user) => {
     <!-- 課表 -->
 
     <div class="flex justify-center items-center">
-      <!-- <div
-        class="bg-[#4B526D] font-semibold text-white rounded-md py-1 px-4 text-md"
-      >
-        課表
-      </div> -->
       <div
-        class="bg-white border border-[#4B526D] font-semibold text-[#4B526D] py-2 px-3 rounded-md text-md flex gap-2 justify-center items-center lg:py-4 lg:w-3/6 lg:text-lg"
+        class="bg-white border border-[#4B526D] font-semibold text-[#4B526D] py-2 px-3 rounded-md text-md flex gap-2 justify-center items-center lg:py-4 lg:px-6 lg:text-lg"
       >
         <div class="text-md font-normal lg:text-lg">今日課表</div>
         <div>
@@ -125,16 +119,24 @@ onAuthStateChanged(auth, (user) => {
         </div>
       </div>
     </div>
-    <!-- <div class="p-2"></div>
-    <div class="flex justify-center">
-      <div class="border border-dashed border-[#4B526D] w-72"></div>
-    </div> -->
 
-    <div class="p-1 lg:p-3"></div>
-    <div class="lg:justify-center lg:items-center lg:flex bg-[#FEFAF7]">
-      <Table class="p-3 bg-[#FEFAF7] grid lg:grid-cols-2 lg:gap-3 lg:w-3/5" />
+    <div class="p-3"></div>
+
+    <div class="flex justify-center items-center">
+      <!-- <div class="grid-cols-2 grid gap-5">
+        <div class="bg-[#363C56] p-8 text-6xl text-white font-black">今</div>
+        <div class="bg-[#363C56] p-8 text-6xl text-white font-black">日</div>
+        <div class="bg-[#363C56] p-8 text-6xl text-white font-black">沒</div>
+        <div class="bg-[#363C56] p-8 text-6xl text-white font-black">課</div>
+      </div> -->
+      <div
+        class="bg-white w-64 h-64 flex justify-center items-center p-3 border border-[#3d3d3d] rounded-sm"
+      >
+        <span class="font-semibold text-xl tracking-widest pl-2"
+          >Yeah~今天沒課！</span
+        >
+      </div>
     </div>
-
     <div class="p-3 bg-[#FEFAF7]"></div>
     <div class="flex justify-center bg-[#FEFAF7]">
       <div class="border border-dashed border-[#4B526D] w-72 lg:w-3/4"></div>

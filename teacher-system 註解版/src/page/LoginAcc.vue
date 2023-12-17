@@ -1,3 +1,4 @@
+<!-- page 電郵登入 (暫不使用) -->
 <template>
   <div class="h-screen bg-[#FEFAF7]">
     <nav

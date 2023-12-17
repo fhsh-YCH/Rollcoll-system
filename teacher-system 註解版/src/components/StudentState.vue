@@ -1,3 +1,6 @@
+<!-- TutorClass.vue 的component  -->
+<!-- "../mark/StudentStatus.json" 假資料 -->
+
 <template>
   <div
     v-for="(student, index) in students"

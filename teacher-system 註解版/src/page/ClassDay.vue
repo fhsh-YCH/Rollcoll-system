@@ -1,3 +1,4 @@
+<!-- 暫不使用 -->
 <script setup>
 import Table from "../components/ClassDayTable.vue";
 import ClassTag from "../components/ClassTag.vue";
@@ -7,14 +8,6 @@ const router = useRouter();
 const goBack = () => {
   router.back();
 };
-// const attendanceData = ref([]); // 创建 ref 来存储后端获取的数据
-
-// // 模拟从后端获取数据的函数
-// const fetchDataFromBackend = () => {
-//   // 这里可以使用你的后端 API 请求逻辑
-//   // 假设你从后端获取了一个数组，每个元素包含出勤状态
-//   const responseFromBackend = [
-
 </script>
 <template>
   <div class="h-screen bg-[#FEFAF7]">

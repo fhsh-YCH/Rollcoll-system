@@ -1,3 +1,5 @@
+<!-- ExecutiveReport.vue 的component -->
+<!-- "../mark/Result.json" 假資料 -->
 <template>
   <div
     v-for="(result, index) in results"

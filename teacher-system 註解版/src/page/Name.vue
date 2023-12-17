@@ -1,3 +1,6 @@
+<!-- page 點名頁面 -->
+<!-- "../components/Student.vue" 學生列表的component -->
+<!-- "../mark/student.json" 學生列表假資料 -->
 <template>
   <div class="h-full bg-[#FEFAF7]">
     <nav

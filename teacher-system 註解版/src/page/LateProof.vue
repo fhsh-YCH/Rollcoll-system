@@ -1,3 +1,5 @@
+<!-- modal 給點名老師查看的晚到單 -->
+<!--  "../mark/LateProof.json" 假資料-->
 <template>
   <div
     class="fixed inset-0 flex h-full w-full items-center justify-center bg-black/40"
@@ -61,5 +63,4 @@
 import Json from "../mark/LateProof.json";
 
 const lateProofs = Json.lateproofs;
-// const { isModalOpen } = defineProps(["isModalOpen"]);
 </script>
