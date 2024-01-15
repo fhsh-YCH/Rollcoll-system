@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 在小屏幕上应用的样式 */
+@media (max-width: 768px) {
+  /* 添加适用于小屏幕的样式 */
+}
+
+/* 在大屏幕上应用的样式 */
+@media (min-width: 769px) {
+  /* 添加适用于大屏幕的样式 */
+}
+
+/* 其他全局样式 */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
